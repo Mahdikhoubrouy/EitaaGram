@@ -11,19 +11,26 @@ namespace EitaaGram.BotLib.Helpers
 {
     internal static class JsonConvertation
     {
-        public static TModel ConvertStringToObject<TModel>(this RequestSender req)
+        public static Result<TModel> ConvertStringToObject<TModel>(this RequestSender req)
         {
-            TModel Result;
+            Result<TModel> Result;
             if (req.IsSuccess == true)
             {
-                Result = JsonConvert.DeserializeObject<TModel>(req.Response.Content);
+                Result = JsonConvert.DeserializeObject<Result<TModel>>(req.Response.Content);
             }
             else
             {
-                throw new OperationHasError(req.ErrorDetails.Message, req.ErrorDetails.Message);
+                throw new OperationHasError(req.ErrorDetails.Description,req.ErrorDetails.ErrorCode);
             }
+
 
             return Result;
         }
+    }
+
+    public class Result<T>
+    {
+        public bool ok { get; set; }
+        public T result { get; set; }
     }
 }

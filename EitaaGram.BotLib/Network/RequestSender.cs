@@ -1,10 +1,7 @@
 ﻿using EitaaGram.BotLib.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace EitaaGram.BotLib.Network
@@ -28,13 +25,16 @@ namespace EitaaGram.BotLib.Network
         public async Task MakeRequest()
         {
             Response = await _client.ExecuteAsync(_request);
-
             var json = JObject.Parse(Response.Content);
-
-            if (json.First.ToString() == "true")
+            if (json.ContainsKey("ok") == true)
+            {
                 IsSuccess = true;
+            }
             else
+            {
                 IsSuccess = false;
+                ErrorDetails = JsonConvert.DeserializeObject<ErrorModel>(Response.Content);
+            }
 
         }
 

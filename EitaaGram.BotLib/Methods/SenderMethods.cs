@@ -20,7 +20,7 @@ namespace EitaaGram.BotLib.Methods
                {
                    var sender = new RequestSender(BotInformation.GetAPIURL("getMe"));
                    await sender.MakeRequest();
-                   return sender.ConvertStringToObject<UserModel>();
+                   return sender.ConvertStringToObject<UserModel>().result;
                });
         }
 
@@ -50,9 +50,11 @@ namespace EitaaGram.BotLib.Methods
                 sender.AddBody(json.ToString());
                 await sender.MakeRequest();
 
-                return sender.ConvertStringToObject<SendedResultModel>();
+                return sender.ConvertStringToObject<SendedResultModel>().result;
             });
 
         }
+
+
     }
 }

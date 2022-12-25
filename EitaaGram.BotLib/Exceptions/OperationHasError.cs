@@ -15,13 +15,7 @@ namespace EitaaGram.BotLib.Exceptions
         {
         }
 
-        public OperationHasError(string message, int errorCode) : base($"Error : {message}, Code : {errorCode}")
-        {
-        }
-
-
-
-        public OperationHasError(string type, string message) : base($"type {type} has error : {message}")
+        public OperationHasError(string message, int errorCode) : base($"Error : {message}, Code : {errorCode.ToString()}")
         {
         }
     }
