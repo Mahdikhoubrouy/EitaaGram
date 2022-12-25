@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EitaaGram.BotLib.Models
+namespace EitaaGram.BotLib.Types
 {
-    public class ErrorModel
+    public class ErrorType
     {
         public int error_code { get; set; }
         public string description { get; set; }

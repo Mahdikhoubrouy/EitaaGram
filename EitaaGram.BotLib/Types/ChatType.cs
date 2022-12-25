@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EitaaGram.BotLib.Models
+namespace EitaaGram.BotLib.Types
 {
-    public class ChatModel : BaseModel
+    public class ChatType : BaseType
     {
         public string type { get; set; }
     }

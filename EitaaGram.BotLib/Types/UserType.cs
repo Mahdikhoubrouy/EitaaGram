@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EitaaGram.BotLib.Models
+namespace EitaaGram.BotLib.Types
 {
-    public class UserModel : BaseModel
+    public class UserType : BaseType
     {
         public bool is_bot { get; set; }
         public string first_name { get; set; }

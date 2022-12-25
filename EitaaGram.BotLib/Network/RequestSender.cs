@@ -1,4 +1,4 @@
-﻿using EitaaGram.BotLib.Models;
+﻿using EitaaGram.BotLib.Types;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -14,7 +14,7 @@ namespace EitaaGram.BotLib.Network
         private readonly RestRequest _request;
         public RestResponse Response { get; private set; }
         public bool IsSuccess { get; private set; }
-        public ErrorModel ErrorDetails { get; private set; }
+        public ErrorType ErrorDetails { get; private set; }
 
         public RequestSender(string url)
         {
@@ -35,10 +35,12 @@ namespace EitaaGram.BotLib.Network
             else
             {
                 IsSuccess = false;
-                ErrorDetails = JsonConvert.DeserializeObject<ErrorModel>(Response.Content);
+                ErrorDetails = JsonConvert.DeserializeObject<ErrorType>(Response.Content);
             }
 
         }
+
+
 
 
         public RequestSender AddBody(string data)
@@ -47,11 +49,17 @@ namespace EitaaGram.BotLib.Network
             return this;
         }
 
+        public RequestSender AddFile(string name, string path)
+        {
+            _request.AddFile(name, path);
+            return this;
+        }
+
         private void RequirementOperations()
         {
             _request.Method = Method.Post;
-            _request.AddHeader("Content-Type", "application/json");
-            _request.AddHeader("Accept", "application/json");
+            //_request.AddHeader("Content-Type", "application/json");
+            //_request.AddHeader("Accept", "application/json");
         }
     }
 }
