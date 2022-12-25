@@ -7,6 +7,12 @@ EitaaGramBotClient client = new EitaaGramBotClient("bot38493:6cbde657-fc3b-4081-
 
 var me = await client.GetMeAsync();
 
-Console.WriteLine(me.first_name);
+if(me is null)
+{
+    Console.WriteLine("operation failed");
+    return;
+}
+
+var res = await client.SendMessageAsync("miti22211", "salam dada");
 
 Console.ReadKey();

@@ -25,7 +25,7 @@ namespace EitaaGram.BotLib.Methods
         }
 
 
-        public static async Task<SendedResultModel> SendMessageAsync(
+        public static async Task<SendedResultModel> SendMessageAsync(this EitaaGramBotClient client,
             string chatId, string text, string title = null, bool disable_notification = false, long reply_to_message_id = 0, TimeSpan date = default, bool pin = false, long viewCountForDelete = 0)
         {
             return await Task.Run(async () =>
@@ -46,7 +46,7 @@ namespace EitaaGram.BotLib.Methods
                 if (viewCountForDelete != 0)
                     json.Add("viewCountForDelete", viewCountForDelete);
 
-                var sender = new RequestSender(BotInformation.GetAPIURL("getMe"));
+                var sender = new RequestSender(BotInformation.GetAPIURL("SendMessage"));
                 sender.AddBody(json.ToString());
                 await sender.MakeRequest();
 

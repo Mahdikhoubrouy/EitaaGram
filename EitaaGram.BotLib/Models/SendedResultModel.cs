@@ -7,10 +7,10 @@ namespace EitaaGram.BotLib.Models
 {
     public class SendedResultModel
     {
-        public string MessageId { get; set; }
-        public UserModel From { get; set; }
-        public ChatModel Chat { get; set; }
-        public string Date { get; set; }
-        public string Text { get; set; }
+        public string message_id { get; set; }
+        public UserModel from { get; set; }
+        public ChatModel chat { get; set; }
+        public string date { get; set; }
+        public string text { get; set; }
     }
 }

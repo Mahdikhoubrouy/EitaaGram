@@ -1,11 +1,6 @@
 ﻿using EitaaGram.BotLib.Exceptions;
-using EitaaGram.BotLib.Models;
 using EitaaGram.BotLib.Network;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
 
 namespace EitaaGram.BotLib.Helpers
 {
@@ -13,16 +8,19 @@ namespace EitaaGram.BotLib.Helpers
     {
         public static Result<TModel> ConvertStringToObject<TModel>(this RequestSender req)
         {
-            Result<TModel> Result;
+            bool error = false;
+            Result<TModel> Result = default;
             if (req.IsSuccess == true)
             {
                 Result = JsonConvert.DeserializeObject<Result<TModel>>(req.Response.Content);
             }
             else
             {
-                throw new OperationHasError(req.ErrorDetails.Description,req.ErrorDetails.ErrorCode);
+                error = true;
             }
 
+            if(error == true)
+                throw new OperationHasError(req.ErrorDetails.description, req.ErrorDetails.error_code);
 
             return Result;
         }
