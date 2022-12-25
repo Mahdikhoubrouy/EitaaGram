@@ -8,7 +8,6 @@ namespace EitaaGram.BotLib.Helpers
     {
         public static Result<TModel> ConvertStringToObject<TModel>(this RequestSender req)
         {
-            bool error = false;
             Result<TModel> Result = default;
             if (req.IsSuccess == true)
             {
@@ -16,11 +15,8 @@ namespace EitaaGram.BotLib.Helpers
             }
             else
             {
-                error = true;
-            }
-
-            if(error == true)
                 throw new OperationHasError(req.ErrorDetails.description, req.ErrorDetails.error_code);
+            }
 
             return Result;
         }

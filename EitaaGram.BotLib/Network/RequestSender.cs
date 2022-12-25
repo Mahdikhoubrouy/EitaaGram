@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace EitaaGram.BotLib.Network
@@ -26,7 +28,7 @@ namespace EitaaGram.BotLib.Network
         {
             Response = await _client.ExecuteAsync(_request);
             var json = JObject.Parse(Response.Content);
-            if (json.ContainsKey("ok") == true)
+            if (json.First.ToString().Contains("true"))
             {
                 IsSuccess = true;
             }
