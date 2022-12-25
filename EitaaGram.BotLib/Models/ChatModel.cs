@@ -4,9 +4,8 @@ using System.Text;
 
 namespace EitaaGram.BotLib.Models
 {
-    public abstract class BaseModel
+    public class ChatModel : BaseModel
     {
-        public int Id { get; set; }
-        public string UserName { get; set; }
+        public string Type { get; set; }
     }
 }

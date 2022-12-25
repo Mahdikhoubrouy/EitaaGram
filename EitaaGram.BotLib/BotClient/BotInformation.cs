@@ -18,7 +18,7 @@ namespace EitaaGram.BotLib.BotClient
             return Token;
         }
 
-        public static string GetAPIURL(string Token, string Method)
+        public static string GetAPIURL(string Method)
         {
             return $"https://eitaayar.ir/api/{Token}/{Method}";
         }

@@ -6,6 +6,8 @@ namespace EitaaGram.BotLib.BotClient
 {
     public class EitaaGramBotClient
     {
+        private string Token => BotInformation.GetToken();
+
         public EitaaGramBotClient(string Token)
         {
             BotInformation.SetToken(Token);

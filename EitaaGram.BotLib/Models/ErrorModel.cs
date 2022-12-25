@@ -4,9 +4,9 @@ using System.Text;
 
 namespace EitaaGram.BotLib.Models
 {
-    public abstract class BaseModel
+    public class ErrorModel
     {
-        public int Id { get; set; }
-        public string UserName { get; set; }
+        public int ErrorCode { get; set; }
+        public string Message { get; set; }
     }
 }
