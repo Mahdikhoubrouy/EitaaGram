@@ -6,7 +6,7 @@ namespace EitaaGram.BotLib.Helpers
 {
     internal static class JsonConvertation
     {
-        public static Result<TModel> ConvertStringToObject<TModel>(this RequestSender req)
+        public static TModel ConvertStringToObject<TModel>(this RequestSender req)
         {
             Result<TModel> Result = default;
             if (req.IsSuccess == true)
@@ -18,7 +18,7 @@ namespace EitaaGram.BotLib.Helpers
                 throw new OperationHasError(req.ErrorDetails.description, req.ErrorDetails.error_code);
             }
 
-            return Result;
+            return Result.result;
         }
     }
 
