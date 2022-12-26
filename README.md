@@ -9,7 +9,7 @@
 
 ## **⚙️ چگونگی نصب کتابخانه  ⚙️**
 
-```cs
+```
 dotnet add package EitaaGram --version 1.0.0
 ```
 
