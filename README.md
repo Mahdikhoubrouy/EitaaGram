@@ -1,6 +1,7 @@
 ## 🔰 با سلام برای ساخت ربات اول باید به وبسایت [ایتار یار](https://eitaayar.ir/) مراجعه کنید 🔰
 
 ![UserStep](https://img.shields.io/nuget/v/EitaaGram.Bot)
+![Nuget](https://img.shields.io/nuget/dt/eitaagram.bot)
 ---
 
 1.  **یک پروژه ایجاد کنید**
