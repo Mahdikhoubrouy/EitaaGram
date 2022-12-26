@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>EitaGram</Title>
+    <Description>a library for create Eitaa bot</Description>
+    <RepositoryUrl>https://github.com/Mahdikhoubrouy/EitaaGram/</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
