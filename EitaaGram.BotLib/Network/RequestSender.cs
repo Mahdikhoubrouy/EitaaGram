@@ -1,4 +1,4 @@
-﻿using EitaaGram.BotLib.Types;
+﻿using EitaaGram.Bot.Types;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Text;
 
-namespace EitaaGram.BotLib.Network
+namespace EitaaGram.Bot.Network
 {
     internal class RequestSender
     {

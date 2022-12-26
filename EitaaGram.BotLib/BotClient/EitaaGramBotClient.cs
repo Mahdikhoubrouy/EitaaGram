@@ -1,4 +1,4 @@
-﻿namespace EitaaGram.BotLib.BotClient
+﻿namespace EitaaGram.Bot.BotClient
 {
     public class EitaaGramBotClient
     {

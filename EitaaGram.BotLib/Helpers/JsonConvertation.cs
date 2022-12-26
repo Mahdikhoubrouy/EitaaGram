@@ -1,8 +1,8 @@
-﻿using EitaaGram.BotLib.Exceptions;
-using EitaaGram.BotLib.Network;
+﻿using EitaaGram.Bot.Exceptions;
+using EitaaGram.Bot.Network;
 using Newtonsoft.Json;
 
-namespace EitaaGram.BotLib.Helpers
+namespace EitaaGram.Bot.Helpers
 {
     internal static class JsonConvertation
     {

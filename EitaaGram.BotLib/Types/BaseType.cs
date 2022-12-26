@@ -1,4 +1,4 @@
-﻿namespace EitaaGram.BotLib.Types
+﻿namespace EitaaGram.Bot.Types
 {
     public abstract class BaseType
     {

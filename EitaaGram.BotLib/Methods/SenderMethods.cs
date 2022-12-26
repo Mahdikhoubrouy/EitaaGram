@@ -1,7 +1,7 @@
-﻿using EitaaGram.BotLib.BotClient;
-using EitaaGram.BotLib.Helpers;
-using EitaaGram.BotLib.Types;
-using EitaaGram.BotLib.Network;
+﻿using EitaaGram.Bot.BotClient;
+using EitaaGram.Bot.Helpers;
+using EitaaGram.Bot.Types;
+using EitaaGram.Bot.Network;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Net.Http;
 
-namespace EitaaGram.BotLib.Methods
+namespace EitaaGram.Bot.Methods
 {
     public static class SenderMethods
     {

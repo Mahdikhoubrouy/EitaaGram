@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EitaaGram.BotLib.Exceptions
+namespace EitaaGram.Bot.Exceptions
 {
     public class OperationHasError : Exception
     {
