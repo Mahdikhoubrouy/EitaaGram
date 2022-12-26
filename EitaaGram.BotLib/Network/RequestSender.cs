@@ -16,6 +16,8 @@ namespace EitaaGram.BotLib.Network
         public bool IsSuccess { get; private set; }
         public ErrorType ErrorDetails { get; private set; }
 
+        private bool IsFile = false;
+
         public RequestSender(string url)
         {
             _client = new RestClient(url);
@@ -26,6 +28,12 @@ namespace EitaaGram.BotLib.Network
 
         public async Task MakeRequest()
         {
+            if (!IsFile)
+            {
+                _request.AddHeader("Content-Type", "application/json");
+                _request.AddHeader("Accept", "application/json");
+            }
+
             Response = await _client.ExecuteAsync(_request);
             var json = JObject.Parse(Response.Content);
             if (json.First.ToString().Contains("true"))
@@ -52,14 +60,13 @@ namespace EitaaGram.BotLib.Network
         public RequestSender AddFile(string name, string path)
         {
             _request.AddFile(name, path);
+            IsFile = true;
             return this;
         }
 
         private void RequirementOperations()
         {
             _request.Method = Method.Post;
-            //_request.AddHeader("Content-Type", "application/json");
-            //_request.AddHeader("Accept", "application/json");
         }
     }
 }
