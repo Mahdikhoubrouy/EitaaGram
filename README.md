@@ -10,7 +10,7 @@
 ## **⚙️ چگونگی نصب کتابخانه  ⚙️**
 
 ```cs
-dotnet add package EitaaGram.Bot --version 1.0.0
+dotnet add package EitaaGram --version 1.0.0
 ```
 
 ## 🔆 ساخت کلاینت 🔆
