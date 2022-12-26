@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using System.IO;
+using System.Net.Http;
+using System.Net.NetworkInformation;
 
 namespace EitaaGram.BotLib.Methods
 {
@@ -28,7 +30,7 @@ namespace EitaaGram.BotLib.Methods
         }
 
 
-        public static async Task<SendedMessageType> SendMessageAsync(this EitaaGramBotClient client,
+        public static async Task<MessageType> SendMessageAsync(this EitaaGramBotClient client,
             string chatId, string text, string title = null, bool disable_notification = false, long reply_to_message_id = 0, TimeSpan date = default, bool pin = false, long viewCountForDelete = 0)
         {
             return await Task.Run(async () =>
@@ -53,41 +55,39 @@ namespace EitaaGram.BotLib.Methods
                 sender.AddBody(json.ToString());
                 await sender.MakeRequest();
 
-                return sender.ConvertStringToObject<SendedMessageType>();
+                return sender.ConvertStringToObject<MessageType>();
             });
 
         }
 
-        public static async Task<SendedMessageType> SendFileAsync(this EitaaGramBotClient client,
-            string chatId, string file, string caption = null, string title = null, bool disable_notification = false, long reply_to_message_id = 0, TimeSpan date = default, bool pin = false, long viewCountForDelete = 0)
+        public static async Task<FileType> SendFileAsync(this EitaaGramBotClient client,
+            string chatId, string filePath, string caption = null, string title = null, bool disable_notification = false, long reply_to_message_id = 0, TimeSpan date = default, bool pin = false, long viewCountForDelete = 0)
         {
             return await Task.Run(async () =>
             {
-                var json = new JObject {
-                { "chat_id", chatId },
-                {"disable_notification",disable_notification },
-                { "pin",pin}
+                var contents = new Dictionary<string, StringContent>()
+                {
+                    {"chat_id",new StringContent(chatId) },
+                    {"disable_notification",new StringContent(disable_notification.ToString()) },
+                    {"pin",new StringContent(pin.ToString()) }
                 };
 
-
-
                 if (title != null)
-                    json.Add("title", title);
+                    contents.Add("title", new StringContent(title));
                 if (caption != null)
-                    json.Add("caption", caption);
+                    contents.Add("caption", new StringContent(caption));
                 if (reply_to_message_id != 0)
-                    json.Add("reply_to_message_id", reply_to_message_id);
+                    contents.Add("reply_to_message_id", new StringContent(reply_to_message_id.ToString()));
                 if (date != default)
-                    json.Add("date", date);
+                    contents.Add("date", new StringContent(date.ToString()));
                 if (viewCountForDelete != 0)
-                    json.Add("viewCountForDelete", viewCountForDelete);
+                    contents.Add("viewCountForDelete", new StringContent(viewCountForDelete.ToString()));
 
                 var sender = new RequestSender(BotInformation.GetAPIURL("sendfile"));
-                sender.AddBody(json.ToString());
-                sender.AddFile("file", @"C:\Users\Lion\Downloads\favicon.ico");
+                sender.AddFile(contents, filePath, "test");
                 await sender.MakeRequest();
 
-                return sender.ConvertStringToObject<SendedMessageType>();
+                return sender.ConvertStringToObject<FileType>();
             });
         }
     }

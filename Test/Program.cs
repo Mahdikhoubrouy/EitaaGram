@@ -9,5 +9,5 @@ EitaaGramBotClient client = new EitaaGramBotClient("bot38493:6cbde657-fc3b-4081-
 
 //var res = await client.SendMessageAsync("miti222", "فثسف dada", pin: true);
 
-var file = await client.SendFileAsync("miti222","sds","nmal dada","ok");
+var file = await client.SendFileAsync("miti222","sds","test","ok");
 Console.ReadKey();

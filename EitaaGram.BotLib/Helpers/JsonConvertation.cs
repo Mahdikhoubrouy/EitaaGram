@@ -11,7 +11,7 @@ namespace EitaaGram.BotLib.Helpers
             Result<TModel> Result = default;
             if (req.IsSuccess == true)
             {
-                Result = JsonConvert.DeserializeObject<Result<TModel>>(req.Response.Content);
+                Result = JsonConvert.DeserializeObject<Result<TModel>>(req.Response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
             }
             else
             {
