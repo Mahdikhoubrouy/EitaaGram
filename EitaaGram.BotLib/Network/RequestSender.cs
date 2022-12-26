@@ -53,7 +53,6 @@ namespace EitaaGram.BotLib.Network
                 ErrorDetails = JsonConvert.DeserializeObject<ErrorType>(content);
             }
 
-
         }
 
         public RequestSender AddBody(string data)
