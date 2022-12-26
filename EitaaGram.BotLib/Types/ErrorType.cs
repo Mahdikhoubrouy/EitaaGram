@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EitaaGram.BotLib.Types
+﻿namespace EitaaGram.BotLib.Types
 {
     public class ErrorType
     {

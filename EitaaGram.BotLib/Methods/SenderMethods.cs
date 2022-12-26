@@ -1,18 +1,13 @@
 ﻿using EitaaGram.BotLib.BotClient;
-using EitaaGram.BotLib.Exceptions;
 using EitaaGram.BotLib.Helpers;
 using EitaaGram.BotLib.Types;
 using EitaaGram.BotLib.Network;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 using System.IO;
 using System.Net.Http;
-using System.Net.NetworkInformation;
 
 namespace EitaaGram.BotLib.Methods
 {

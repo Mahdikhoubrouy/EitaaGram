@@ -1,14 +1,11 @@
 ﻿using EitaaGram.BotLib.Types;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using RestSharp;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.IO;
-using System.Xml;
 using System.Text;
 
 namespace EitaaGram.BotLib.Network

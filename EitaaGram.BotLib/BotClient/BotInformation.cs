@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EitaaGram.BotLib.BotClient
+﻿namespace EitaaGram.BotLib.BotClient
 {
     internal static class BotInformation
     {
